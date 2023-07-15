@@ -7,7 +7,7 @@ This file contains the following features:
 * Field Decals (endzones, midfield)
 * Automatic Touchdown Songs
 
-Created by Supermrk (@supermrk)
+Created by enzo
 ]]
 
 local Services = {
@@ -20,7 +20,7 @@ local Services = {
 
 local module = {
     Settings = {
-        AssetsFolder = "C:\Users\16316\AppData\Local\Packages\ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr\AC\workspace\AssetsFolder",
+        AssetsFolder = "",
         AwayInfo = nil,
         HomeInfo = nil,
         IsDay = true
