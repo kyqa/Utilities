@@ -74,8 +74,8 @@ function SetJersey(player, teamInfo, pos)
             uniform.Helmet.Mesh.TextureId = ""
 
             
-            uniform.Helmet.RightLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png", false)
-            uniform.Helmet.LeftLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png", false)
+            uniform.Helmet.RightLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png")
+            uniform.Helmet.LeftLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png")
             
 
             --Setting Upper Uniform
