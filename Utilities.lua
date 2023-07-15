@@ -73,12 +73,10 @@ function SetJersey(player, teamInfo, pos)
             uniform.Helmet.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Helmet"])
             uniform.Helmet.Mesh.TextureId = ""
 
-            if homeInfo:
-                Uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://14072499915"
-                Uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://14072499915"
-            if awayInfo:
-                Uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://14072501972"
-                Uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://14072501972"
+            if (uniform.Helmet:FindFirstChild("RightLogo")) then
+                uniform.Helmet.RightLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png", false)
+                uniform.Helmet.LeftLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png", false)
+            end
                             
             
 
