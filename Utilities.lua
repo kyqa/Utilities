@@ -7,7 +7,7 @@ This file contains the following features:
 * Field Decals (endzones, midfield)
 * Automatic Touchdown Songs
 
-Created by enzo
+Created by Supermrk (@supermrk)
 ]]
 
 local Services = {
@@ -71,12 +71,11 @@ function SetJersey(player, teamInfo, pos)
 
             --Setting Helmet
             uniform.Helmet.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Helmet"])
-            uniform.Helmet.Mesh.TextureId = ""
+            uniform.Helmet.Mesh.TextureId = "rbxassetid://13243110975"
 
-            uniform.Helmet.RightLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png")
-            uniform.Helmet.LeftLogo.Decal.Texture = getcustomasset(module.Settings["AssetsFolder"] .. teamInfo.City .. " " .. teamInfo.Name  .. "/Logo.png")
-                            
             
+            uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://13244676681"
+            uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://13244676681"
 
             --Setting Upper Uniform
             uniform.ShoulderPads.Front.Team.Text = string.upper(teamInfo["Name"])
@@ -84,6 +83,8 @@ function SetJersey(player, teamInfo, pos)
             uniform.Shirt.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
             uniform.LeftShortSleeve.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
             uniform.RightShortSleeve.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
+            uniform.LeftPit.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
+            uniform.RightPit.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
 
             --Setting Pants
             uniform.LeftPants.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Pants"])
