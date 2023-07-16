@@ -70,12 +70,18 @@ function SetJersey(player, teamInfo, pos)
             end
 
             --Setting Helmet
-            uniform.Helmet.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Helmet"])
-            uniform.Helmet.Mesh.TextureId = "rbxassetid://13243110975"
+            local player = game.Players.LocalPlayer
+            local homeTeam = module.Settings.HomeInfo
+            local awayTeam = module.Settings.AwayInfo
 
-            
-            uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://13244676681"
-            uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://13244676681"
+            if homeTeam and player.Team == homeTeam then
+                uniform.Helmet.Mesh.TextureId = "rbxassetid://14082617721"
+                uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://14082583575"
+                uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://14082583575"
+            elseif awayTeam and player.Team == awayTeam then
+                uniform.Helmet.Mesh.TextureId = "rbxassetid://14082618845"
+                uniform.Helmet.RightLogo.Decal.Texture = "rbxassetid://14082582244"
+                uniform.Helmet.LeftLogo.Decal.Texture = "rbxassetid://14082582244"
 
             --Setting Upper Uniform
             uniform.ShoulderPads.Front.Team.Text = string.upper(teamInfo["Name"])
