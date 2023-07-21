@@ -71,6 +71,21 @@ function SetJersey(player, teamInfo, pos)
 
             --Setting Helmet
             uniform.Helmet.Mesh.TextureId = (teamInfo["Colors"]["Jersey"][pos]["HelmetTexture"])
+
+            if uniform.Helmet.RightLogo.Decal then
+                pass
+            elseif
+                local rightlogo = Instance.new("Part")
+                rightlogo.Parent = uniform.Helmet
+                local decal = Instance.new("Decal")
+                decal.Parent = rightlogo
+                decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
+                local leftlogo = Instance.new("Part")
+                leftlogo.Parent = uniform.Helmet
+                local decal2 = Instance.new("Decal")
+                decal2.Parent = leftlogo
+                decal2.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
+                    
             uniform.Helmet.RightLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
             uniform.Helmet.LeftLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
 
