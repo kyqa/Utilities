@@ -73,7 +73,7 @@ function SetJersey(player, teamInfo, pos)
             uniform.Helmet.Mesh.TextureId = (teamInfo["Colors"]["Jersey"][pos]["HelmetTexture"])
 
             if (FFValues.StatusTag.Value ~= "REPLAY") then
-                return
+                end
             else
                 uniform.Helmet.RightLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
                 uniform.Helmet.LeftLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
