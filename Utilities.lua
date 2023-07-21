@@ -68,7 +68,17 @@ function SetJersey(player, teamInfo, pos)
             if not (uniform:FindFirstChild("Helmet")) then
                 return
             end
- 
+
+            --Setting Helmet
+            uniform.Helmet.Mesh.TextureId = (teamInfo["Colors"]["Jersey"][pos]["HelmetTexture"])
+
+            if (FFValues.StatusTag.Value ~= "REPLAY") then
+                
+            else
+                uniform.Helmet.RightLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
+                uniform.Helmet.LeftLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
+            end
+                        
             --Setting Upper Uniform
             uniform.ShoulderPads.Front.Team.Text = string.upper(teamInfo["Name"])
             uniform.ShoulderPads.Color = Color3.fromHex(teamInfo["Colors"]["Jersey"][pos]["Jersey"])
@@ -95,27 +105,6 @@ function SetJersey(player, teamInfo, pos)
         end)
     end)
 end
-
-function SetHelmet(player, teamInfo, pos)
-    pcall(function()
-        if not (player.Character) then
-            return
-        end
-
-        task.spawn(function()
-            local uniform = player.Character:WaitForChild("Uniform")
-            wait(0.5)
-
-            if not (uniform:FindFirstChild("Helmet")) then
-                return
-            end
-
-            uniform.Helmet.Mesh.TextureId = (teamInfo["Colors"]["Jersey"][pos]["HelmetTexture"])
-            uniform.Helmet.RightLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
-            uniform.Helmet.LeftLogo.Decal.Texture = (teamInfo["Colors"]["Jersey"][pos]["Logo"])
-        end
-    end)
-end)
 
 function SetTime(time)
     --TODO (night/day)
@@ -194,10 +183,8 @@ function module:SetTeams(awayInfo, homeInfo)
         print("[ENVIROMENT] Set " .. player.Name .. "'s Jersey")
         if (player.Team.Name == FFValues.Home.Value.Name) then
             SetJersey(player,module.Settings["HomeInfo"],"Home")
-            SetHelmet(player,module.Settings["HomeInfo"],"Home")
         else
             SetJersey(player,module.Settings["AwayInfo"],"Away")
-            SetHelmet(player,module.Settings["AwayInfo"],"Away")
         end
     end
 end
@@ -244,7 +231,6 @@ FFValues.Away.Changed:Connect(function(team)
             if (module.Settings["AwayInfo"]) then
                 print("[ENVIROMENT] Set " .. player.Name .. "'s Jersey")
                 SetJersey(player,module.Settings["AwayInfo"],"Away")
-                SetHelmet(player,module.Settings["AwayInfo"],"Away")
             end
         end)
     end
@@ -255,7 +241,6 @@ FFValues.Home.Changed:Connect(function(team)
             if (module.Settings["HomeInfo"]) then
                 print("[ENVIROMENT] Set " .. player.Name .. "'s Jersey")
                 SetJersey(player,module.Settings["HomeInfo"],"Home")
-                SetHelmet(player,module.Settings["HomeInfo"],"Home")
             end
         end)
     end
@@ -266,10 +251,8 @@ Services["Players"].PlayerAdded:Connect(function(player)
         print("[ENVIROMENT] Set " .. player.Name .. "'s Jersey")
         if (player.Team.Name == FFValues.Home.Value.Name) then
             SetJersey(player,module.Settings["HomeInfo"],"Home")
-            SetHelmet(player,module.Settings["HomeInfo"],"Home")
         else
             SetJersey(player,module.Settings["AwayInfo"],"Away")
-            SetHelmet(player,module.Settings["AwayInfo"],"Away")
         end
     end)
 end)
@@ -318,19 +301,14 @@ Services["Workspace"].DescendantAdded:Connect(function(model)
                 if (FFValues.PossessionTag.Value == FFValues.Home.Value.Name) then
                     if (model.Name == "Kicker") then
                         SetJersey({Character = model},module.Settings["AwayInfo"],"Away")
-                        SetHelmet({Character = model},module.Settings["AwayInfo"],"Away")
-                        
                     else
                         SetJersey({Character = model},module.Settings["HomeInfo"],"Away")
-                        SetHelmet({Character = model},module.Settings["HomeInfo"],"Away")
                     end
                 else
                     if (model.Name == "Kicker") then
                         SetJersey({Character = model},module.Settings["HomeInfo"],"Home")
-                        SetHelmet({Character = model},module.Settings["HomeInfo"],"Home")
                     else
                         SetJersey({Character = model},module.Settings["AwayInfo"],"Home")
-                        SetHelmet({Character = model},module.Settings["AwayInfo"],"Home")
                     end
                 end
                 print("[ENVIROMENT] Set " .. model.Name .. "'s Jersey")
@@ -366,9 +344,7 @@ for i,player in ipairs(Services["Players"]:GetPlayers()) do
         print("[ENVIROMENT] Set " .. player.Name .. "'s Jersey")
         if (player.Team.Name == FFValues.Home.Value.Name) then
             SetJersey(player,module.Settings["HomeInfo"],"Home")
-            SetHelmet(player,module.Settings["HomeInfo"],"Home")
         else
-            SetJersey(player,module.Settings["AwayInfo"],"Away")
             SetJersey(player,module.Settings["AwayInfo"],"Away")
         end
     end)
